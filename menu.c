@@ -6,44 +6,54 @@
 #include "sum.h"
 
 #define MAX_SIZE 100
+#define OUT_FMT "%d\n"
 
+int input(int *arr, int *num_case){
 
-int main(){
-        int index = 0;
-        int arr[MAX_SIZE];
+       	int index = 0;
         char space = ' ';
-        int num_case;
-
-        scanf("%d", &num_case);
+        scanf("%d", num_case);
 
         while (index < MAX_SIZE && space ==  ' '){
                 scanf("%d%c", &arr[index], &space);
                 index++;
         }
 
-        int size = index;
+        return index;
+}
 
+void output(int num_case, int arr[], int size){
         switch(num_case)
         {
                 case 0:
-                printf("%d\n", max(arr, size));
+                printf(OUT_FMT, max(arr, size));
                 break;
 
                 case 1:
-                printf("%d\n", min(arr, size));
+                printf(OUT_FMT, min(arr, size));
                 break;
 
                 case 2:
-                printf("%d\n", diff(arr, size));
+                printf(OUT_FMT, diff(arr, size));
                 break;
 
                 case 3:
-                printf("%d\n", sum(arr, size));
+                printf(OUT_FMT, sum(arr, size));
                 break;
 
                 default:
                 printf("Данные некорректны");
         }
+
+
+}
+
+int main(){
+	int num_case;
+        int arr[MAX_SIZE];
+
+	int size = input(arr, &num_case);
+	output(num_case, arr, size);
 
         return 0;
 }
