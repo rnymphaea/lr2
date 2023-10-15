@@ -8,6 +8,19 @@
 #define MAX_SIZE 100
 #define OUT_FMT "%d\n"
 
+int input(int *arr, int *num_case);
+void output(int num_case, int *arr, int size);
+
+int main(){
+	int num_case;
+        int arr[MAX_SIZE];
+
+	int size = input(arr, &num_case);
+	output(num_case, arr, size);
+
+        return 0;
+}
+
 int input(int *arr, int *num_case){
 
        	int index = 0;
@@ -22,7 +35,7 @@ int input(int *arr, int *num_case){
         return index;
 }
 
-void output(int num_case, int arr[], int size){
+void output(int num_case, int *arr, int size){
         switch(num_case)
         {
                 case 0:
@@ -47,14 +60,3 @@ void output(int num_case, int arr[], int size){
 
 
 }
-
-int main(){
-	int num_case;
-        int arr[MAX_SIZE];
-
-	int size = input(arr, &num_case);
-	output(num_case, arr, size);
-
-        return 0;
-}
-
